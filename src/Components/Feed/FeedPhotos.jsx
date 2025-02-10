@@ -1,7 +1,7 @@
 import React from 'react';
 import FeedPhotosItem from './FeedPhotosItem';
 import useFetch from '../../Hooks/useFetch';
-import { PHOTOS_GET } from '../../Api';
+import { PHOTOS_GET } from '../../api';
 import Error from '../Helper/Error';
 import Loading from '../Helper/Loading';
 import styles from './FeedPhotos.module.css';
@@ -13,6 +13,7 @@ const FeedPhotos = ({ setModalPhoto }) => {
     async function fetchPhotos() {
       const { url, options } = PHOTOS_GET({ page: 1, total: 6, user: 0 });
       const { json } = await request(url, options);
+      console.log(json);
     }
     fetchPhotos();
   }, [request]);
